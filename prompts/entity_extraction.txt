@@ -1,0 +1,127 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: One of the following types: [operational incidents, safety protocol violations, equipment failures, nuclear reactor systems, radiation monitoring, national safety standards, departments, root cause analysis, corrective actions, systemic issues]
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: an integer score between 1 to 10, indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in The primary language of the provided texts is **Chinese**. 
+
+### Key Observations:
+1. **Character System**: The text extensively uses Chinese characters (e.g., "机组泵房前池", "安全措施管控失效", "根本原因").
+2. **Technical Terminology**: Terms like "标高-20.6", "RUNBACK信号", and "蒸汽发生器" are technical vocabulary specific to Chinese industrial/engineering contexts.
+3. **Date Formats**: Dates are written in Chinese conventions (e.g., "2016-04-18", "2021-10-09 16:19:21").
+4. **Mixed Content**: While some technical codes (e.g., "HN-CR202108774") and acronyms (e.g., "WANO") appear, they are embedded within Chinese sentences and workflows.
+
+### Examples of Chinese-Specific Features:
+- **Direct Cause**: "作业人员王某坚安全意识淡薄，未遵守工前会安全交底要求..." (Workers' safety violations).
+- **Root Cause**: "4GFR 系统缺少在线滤油装置..." (System design flaws).
+- **Technical Actions**: "隔离漏点，联系维修紧急处理..." (Isolating leaks and contacting maintenance).
+
+No other language (e.g., English, Japanese) dominates the content. as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into The primary language of the provided texts is **Chinese**. 
+
+### Key Observations:
+1. **Character System**: The text extensively uses Chinese characters (e.g., "机组泵房前池", "安全措施管控失效", "根本原因").
+2. **Technical Terminology**: Terms like "标高-20.6", "RUNBACK信号", and "蒸汽发生器" are technical vocabulary specific to Chinese industrial/engineering contexts.
+3. **Date Formats**: Dates are written in Chinese conventions (e.g., "2016-04-18", "2021-10-09 16:19:21").
+4. **Mixed Content**: While some technical codes (e.g., "HN-CR202108774") and acronyms (e.g., "WANO") appear, they are embedded within Chinese sentences and workflows.
+
+### Examples of Chinese-Specific Features:
+- **Direct Cause**: "作业人员王某坚安全意识淡薄，未遵守工前会安全交底要求..." (Workers' safety violations).
+- **Root Cause**: "4GFR 系统缺少在线滤油装置..." (System design flaws).
+- **Technical Actions**: "隔离漏点，联系维修紧急处理..." (Isolating leaks and contacting maintenance).
+
+No other language (e.g., English, Japanese) dominates the content., just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+entity_types: [operational incidents, safety protocol violations, equipment failures, nuclear reactor systems, radiation monitoring, national safety standards, departments, root cause analysis, corrective actions, systemic issues]
+text:
+1#机组泵房前池和2#机组泵房前池中间设有宽1米、高2米的连通孔，该连通孔底部标高-20.6",
+        "事件直接原因": "作业人员王某坚安全意识淡薄，未遵守工前会安全交底要求，在未确保水流风险可控的情况下，擅自离开吊笼，冒险作业，不慎被水下暗流冲走淹溺死亡。",
+        "根本原因": "1)\t风险分析及安全措施管控失效，作为二级工业
+------------------------
+output:
+("entity"{tuple_delimiter}连通孔{tuple_delimiter}nuclear reactor systems{tuple_delimiter}1#和2#机组泵房前池之间的连通结构，宽1米、高2米，底部标高-20.6米)
+{record_delimiter}
+("entity"{tuple_delimiter}作业人员王某坚未遵守安全交底要求{tuple_delimiter}safety protocol violations{tuple_delimiter}作业人员未遵守工前会安全交底要求，擅自离开吊笼冒险作业导致淹溺事故)
+{record_delimiter}
+("entity"{tuple_delimiter}风险分析及安全措施管控失效{tuple_delimiter}systemic issues{tuple_delimiter}二级工业安全措施管控失效，风险分析流程存在系统性缺陷)
+{record_delimiter}
+("entity"{tuple_delimiter}4GFR系统缺少在线滤油装置{tuple_delimiter}equipment failures{tuple_delimiter}系统设计缺陷导致润滑油污染，需定期停机进行离线滤油处理)
+{record_delimiter}
+("entity"{tuple_delimiter}根本原因分析{tuple_delimiter}root cause analysis{tuple_delimiter}识别出风险管控失效和设备设计缺陷为事故根本原因)
+{record_delimiter}
+("entity"{tuple_delimiter}淹溺死亡事故{tuple_delimiter}operational incidents{tuple_delimiter}作业人员被水下暗流冲走导致死亡的严重工业事故)
+{record_delimiter}
+("relationship"{tuple_delimiter}作业人员王某坚未遵守安全交底要求{tuple_delimiter}淹溺死亡事故{tuple_delimiter}直接违反安全规程导致人员死亡{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}根本原因分析{tuple_delimiter}风险分析及安全措施管控失效{tuple_delimiter}分析确认风险管控体系存在系统性缺陷{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}根本原因分析{tuple_delimiter}4GFR系统缺少在线滤油装置{tuple_delimiter}识别设备设计缺陷为根本原因之一{tuple_delimiter}9)
+{record_delimiter}
+("relationship"{tuple_delimiter}风险分析及安全措施管控失效{tuple_delimiter}淹溺死亡事故{tuple_delimiter}管理体系失效导致现场风险失控{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}4GFR系统缺少在线滤油装置{tuple_delimiter}风险分析及安全措施管控失效{tuple_delimiter}设备缺陷暴露风险管控体系漏洞{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}连通孔{tuple_delimiter}淹溺死亡事故{tuple_delimiter}特殊结构导致水下流场复杂化{tuple_delimiter}6)
+{completion_delimiter}
+#############################
+
+
+Example 2:
+
+entity_types: [operational incidents, safety protocol violations, equipment failures, nuclear reactor systems, radiation monitoring, national safety standards, departments, root cause analysis, corrective actions, systemic issues]
+text:
+了该人员的负担和反复进出电厂的管理成本，对电站的形象会带来一定负面影响。",
+        "已采取行动": "人员清洗后再次测量，结果正常。",
+        "直接原因": "离职会签表签字顺序需要优化",
+        "进一步行动建议": "优化离职会签表顺序，厂区离职会签部分，应将保卫处会签强制放到最后一步。",
+        "开发处室": "保健物理三处",
+        "例会定级日期": "2016-04-18",
+        "事件描述": "2月3日，安徽国润电力检修人
+------------------------
+output:
+("entity"{tuple_delimiter}离职会签表签字顺序需要优化{tuple_delimiter}safety protocol violations{tuple_delimiter}直接原因中明确指出签字流程存在设计缺陷，违反核电站人员离职管理程序要求)
+{record_delimiter}
+("entity"{tuple_delimiter}人员清洗后再次测量，结果正常{tuple_delimiter}corrective actions{tuple_delimiter}针对人员污染事件实施的去污处置措施)
+{record_delimiter}
+("entity"{tuple_delimiter}保健物理三处{tuple_delimiter}departments{tuple_delimiter}负责辐射防护与人员剂量管理的职能部门)
+{record_delimiter}
+("entity"{tuple_delimiter}优化离职会签表顺序{tuple_delimiter}systemic issues{tuple_delimiter}暴露行政流程设计未考虑核安全文化要求的系统性管理缺陷)
+{record_delimiter}
+("relationship"{tuple_delimiter}离职会签表签字顺序需要优化{tuple_delimiter}优化离职会签表顺序{tuple_delimiter}签字流程缺陷直接导致需要系统性流程再造{tuple_delimiter}8)
+{record_delimiter}
+("relationship"{tuple_delimiter}保健物理三处{tuple_delimiter}人员清洗后再次测量，结果正常{tuple_delimiter}该部门负责执行人员辐射污染后的去污处理措施{tuple_delimiter}7)
+{record_delimiter}
+("relationship"{tuple_delimiter}优化离职会签表顺序{tuple_delimiter}保健物理三处{tuple_delimiter}流程优化需要辐射防护部门的专项审查{tuple_delimiter}6)
+{completion_delimiter}
+#############################
+
+
+
+-Real Data-
+######################
+entity_types: [operational incidents, safety protocol violations, equipment failures, nuclear reactor systems, radiation monitoring, national safety standards, departments, root cause analysis, corrective actions, systemic issues]
+text: {input_text}
+######################
+output:

@@ -139,19 +139,20 @@ def main():
 
     api_key = os.environ["GRAPHRAG_API_KEY"]
 
-    llm_model = "gpt-4o-mini"
-    embedding_model = "text-embedding-3-small"
+    llm_model = "deepseek-r1"
+    embedding_model = "bge-m3"
 
     llm = ChatOpenAI(
         api_key=api_key,
         model=llm_model,
-        api_type=OpenaiApiType.OpenAI,  # OpenaiApiType.OpenAI or OpenaiApiType.AzureOpenAI
+        api_type=OpenaiApiType.OpenAI,
+        api_base="https://dashscope.aliyuncs.com/compatible-mode/v1",
         max_retries=20,
     )
 
     text_embedder = OpenAIEmbedding(
-        api_key=api_key,
-        api_base=None,
+        api_key="empty",
+        api_base="http://127.0.0.1:11434/v1",
         api_type=OpenaiApiType.OpenAI,
         model=embedding_model,
         deployment_name=embedding_model,

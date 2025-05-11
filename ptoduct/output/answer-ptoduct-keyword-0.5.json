@@ -1,0 +1,82 @@
+[
+    {
+        "id": "1",
+        "answer": "3431-PV4\u55b7\u6dcb\u9600\u65e0\u6cd5\u52a8\u4f5c\u5bfc\u81f4\u8bd5\u9a8c\u5931\u8d25"
+    },
+    {
+        "id": "2",
+        "answer": "Insufficient information."
+    },
+    {
+        "id": "3",
+        "answer": "\u9600\u95e8\u5173\u95ed\u65f6\u95f4\u8d85\u8fc710\u79d2\uff0c\u4e0d\u6ee1\u8db3\u8981\u6c42\u3002"
+    },
+    {
+        "id": "4",
+        "answer": "The reactor coolant pumps for the HN Small Reactor experienced **delays in delivery**. As of November 13, 2024, the delivery was **152 days behind schedule**, with the final pump's estimated arrival time further delayed from early November to late November 2024."
+    },
+    {
+        "id": "5",
+        "answer": "1RIC203KM\u8fc7\u51b7\u88d5\u5ea6\u76d1\u6d4b\u901a\u9053\u5931\u6548\u3002"
+    },
+    {
+        "id": "6",
+        "answer": "\u7834\u635f\u71c3\u6599\u88ab\u5378\u51fa\u3002"
+    },
+    {
+        "id": "7",
+        "answer": "\u4e0b\u6e38\u5f2f\u7ba1\u5904\u5b58\u5728\u62c7\u6307\u7c97\u7ec6\u7834\u53e3\u3002"
+    },
+    {
+        "id": "8",
+        "answer": "\u5ef6\u65f6\u7ee7\u7535\u566863432-RL-5001M\u6545\u969c\u5bfc\u81f4\u8bd5\u9a8c\u4e0d\u5408\u683c\u5e76\u8fdb\u5165TS\u9650\u5236\u3002"
+    },
+    {
+        "id": "9",
+        "answer": "\u5728FQ207\u5927\u4fee\u671f\u95f4\uff0c\u6267\u884c\u963b\u6d41\u585e\u7ec4\u4ef6\u5012\u6362\u64cd\u4f5c\u65f6\u53d1\u751f\u4e00\u7ec4\u963b\u6d41\u585e\u7ec4\u4ef6\u53d8\u5f62\u3002"
+    },
+    {
+        "id": "10",
+        "answer": "The direct cause of the TW1\u53f7\u673a\u7ec41BRL\u6bcd\u7ebf\u5931\u7535\u4e8b\u4ef6 was:  \n**\u5de5\u4f5c\u4eba\u5458\u9519\u8bef\u65ad\u5f001BRG02-PA\u7535\u6c14\u5f00\u5173**  \n*(Staff incorrectly disconnected the 1BRG02-PA electrical switch)*.  \n\nThis is explicitly stated in the text sources (e.g., chunk_3, chunk_19) and aligns with the entity \"1\u53f7\u673a\u7ec4\u7535\u6c14\u64cd\u4f5c\u5931\u8bef\u4e8b\u4ef6\"."
+    },
+    {
+        "id": "11",
+        "answer": "Insufficient information."
+    },
+    {
+        "id": "12",
+        "answer": "\"5\u8d77CR\u4e8b\u4ef6\u3002\""
+    },
+    {
+        "id": "13",
+        "answer": "QS\u4e09\u53821\u53f7\u673a\u7ec4\u57282024\u5e7411\u6708\u81f312\u6708\u671f\u95f4\u53d1\u751f\u4e86\uff1a  \n1. 1\u53f7\u673a\u7ec4G17\u901a\u9053\u5378\u51fa\u7834\u635f\u71c3\u6599\uff08CR\u7f16\u53f7\uff1aQS-CR202456042\uff09  \n2. \u5b89\u5168\u58f3\u55b7\u6dcb\u7cfb\u7edf\u6c14\u52a8\u9600\u8bd5\u9a8c\u5931\u8d25\uff08CR\u7f16\u53f7\uff1aQS-CR202460204\uff09  \n\n\u8fd9\u4e24\u4e2a\u4e8b\u4ef6\u5206\u522b\u53d1\u751f\u57282024-11-19\u548c2024-12-16\uff0c\u5747\u7b26\u5408\u65f6\u95f4\u8303\u56f4\u8981\u6c42\u3002"
+    },
+    {
+        "id": "14",
+        "answer": "\"2.\""
+    },
+    {
+        "id": "15",
+        "answer": "1"
+    },
+    {
+        "id": "16",
+        "answer": "3"
+    },
+    {
+        "id": "17",
+        "answer": "QS\u4e09\u53821\u53f7\u673a\u7ec4\u57282024\u5e7412\u6708\u4efd\u53d1\u751f\u4e861\u8d77CR\u4e8b\u4ef6\u3002"
+    },
+    {
+        "id": "18",
+        "answer": "TW\u7535\u5382\uff1a2\u8d77\uff0811\u67081\u8d77\uff0c12\u67081\u8d77\uff09\uff1b  \nQS\u4e09\u5382\uff1a2\u8d77\uff0811\u67081\u8d77\uff0c12\u67081\u8d77\uff09\uff1b  \nFQ\u7535\u5382\uff1a1\u8d77\uff0811\u6708\uff09\uff1b  \nHN\u7535\u5382\uff1a2\u8d77\uff0811\u67081\u8d77\uff0c12\u67081\u8d77\uff09\uff1b  \n\u534e\u5317\u76d1\u7763\u7ad9\uff1a1\u8d77\uff0812\u6708\uff09\u3002  \n\nInsufficient information for other plants."
+    },
+    {
+        "id": "19",
+        "answer": "\"2\u8d77\u3002\""
+    },
+    {
+        "id": "20",
+        "answer": "\"2.\""
+    }
+]

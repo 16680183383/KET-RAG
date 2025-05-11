@@ -58,13 +58,14 @@ async def process_qa_pairs(search_engine, golden, graphgraph, file_path, file_na
 
 async def main():
     api_key = os.environ["GRAPHRAG_API_KEY"]
-    llm_model = "gpt-4o-mini"  # os.environ["GRAPHRAG_LLM_MODEL"]
-    embedding_model = "text-embedding-3-small"  # os.environ["GRAPHRAG_EMBEDDING_MODEL"]
+    llm_model = "deepseek-r1"
+    embedding_model = "bge-m3"
 
     llm = ChatOpenAI(
         api_key=api_key,
         model=llm_model,
-        api_type=OpenaiApiType.OpenAI,  # OpenaiApiType.OpenAI or OpenaiApiType.AzureOpenAI
+        api_type=OpenaiApiType.OpenAI,
+        api_base="https://dashscope.aliyuncs.com/compatible-mode/v1",
         max_retries=20,
     )
 
@@ -121,7 +122,7 @@ async def main():
 
     # Find matching files
     directory_path = f'{ROOT_PATH}/output/'
-    json_files = glob.glob(os.path.join(directory_path, 'ragtest-*.json'))
+    json_files = glob.glob(os.path.join(directory_path, 'ptoduct-*.json'))
 
     print("#all files = ", len(json_files))
     semaphore = asyncio.Semaphore(4)  # Limit to 5 concurrent tasks
